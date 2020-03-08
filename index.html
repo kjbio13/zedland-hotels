@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Zedlands Hotel: Find Your Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <!-- LANDING PAGE  -->
+  <div data-role="page" id="main" data-theme="a">
+    <div data-role="header">
+
+    </div>
+    <div data-role="content" class="center margin_top">
+
+      <h1 class="logo">A to Z</h1>
+      <p class="subtitle">Accomodations to Zedland</p>
+
+      <label for="search-basic" class="location_label">Search Location:</label>
+      <input type="search" name="search" id="search-basic" value="" placeholder="Type the postcode or location" />
+
+      <a href="#accomodation_type" data-role="button">Search</a>
+      <a href="#sign_in_page"><button class="ui-btn ui-btn-inline">Sign In</button></a>
+      <a href="#sign_up_page"><button class="ui-btn ui-btn-inline">Sign Up</button></a>
+
+      <div class="">
+        <a href="forgotten_password.html">Forgot Password</a>
+      </div>
+    </div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+
+    </div>
+  </div>
+  <!-- ACCOMODATION TYPE -->
+  <div data-role="page" id="accomodation_type">
+    <div data-role="header">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Accomodation Type</h1>
+      <form>
+
+        <fieldset data-role="controlgroup" data-iconpos="right">
+
+          <input type="checkbox" name="checkbox-h-6a" id="checkbox-h-6a">
+          <label for="checkbox-h-6a">House</label>
+          <input type="checkbox" name="checkbox-h-6b" id="checkbox-h-6b">
+          <label for="checkbox-h-6b">Flat</label>
+          <input type="checkbox" name="checkbox-h-6c" id="checkbox-h-6c">
+          <label for="checkbox-h-6c">Studio</label>
+          <input type="checkbox" name="checkbox-h-6d" id="checkbox-h-6d">
+          <label for="checkbox-h-6d">Shared</label>
+
+        </fieldset>
+      </form>
+      <a href="#price_range_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">Next</button></a>
+
+    </div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+
+    </div>
+  </div>
+
+
+  <!-- PRICE TYPE -->
+  <div data-role="page" id="price_range_page">
+    <div data-role="header">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Price Range</h1>
+      <form>
+        <label for="number-3">Minimum:</label>
+        <input type="number" data-clear-btn="true" name="number-3" pattern="[0-9]*" id="number-3" value="" placeholder="No Minimum">
+        <label for="number-4">Maximum:</label>
+        <input type="number" data-clear-btn="true" name="number-4" pattern="[0-9]*" id="number-4" value="" placeholder="No Maximum">
+        <a href="#move_in_date_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">Next</button></a>
+
+      </form>
+
+
+    </div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- MOVE IN DATE -->
+  <div data-role="page" id="move_in_date_page">
+    <div data-role="header">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>MOVE IN DATE</h1>
+
+      <input type="text" data-role="date">
+      <a href="#filters_type_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">Next</button></a>
+
+    </div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- FILTERS TYPE -->
+  <div data-role="page" id="filters_type_page">
+    <div data-role="header">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>OTHER FILTERS</h1>
+      <form>
+
+        <fieldset data-role="controlgroup" data-mini="true">
+
+          <legend></legend>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked">
+          <label for="radio-choice-v-2a">No Smoking</label>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
+          <label for="radio-choice-v-2b">Smoking Allowed</label>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="other">
+          <label for="radio-choice-v-2c">Don't Mind</label>
+        </fieldset>
+      </form>
+
+      <form>
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-0" data-mini="true">
+        <label for="checkbox-mini-0">Pets Allowed</label>
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-1" data-mini="true">
+        <label for="checkbox-mini-1">Disabled Access</label>
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-2" data-mini="true">
+        <label for="checkbox-mini-2">Parking Available</label>
+      </form>
+      <a href="#listings_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">Next</button></a>
+
+    </div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- MY ACCOUNT PAGE -->
+  <div data-role="page" id="my_account_page">
+    <div data-role="header" data-position="fixed">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center margin_top">
+
+      <h1>Hi Kevin!</h1>
+      <a href="#reserved_listing_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserved</button></a>
+      <a href="#interested_in_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-mail">Interested In</button></a>
+      <a href="#saved_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Saved</button></a>
+      <a href="#settings_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-gear">Settings</button></a>
+
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- LISTINGS PAGE -->
+  <div data-role="page" id="listings_page">
+
+    <div data-role="panel" id="navpanel" data-display="push" data-position-fixed="true">
+      <h1>Account</h1>
+      <ul data-role="listview">
+        <li><a href="#my_account_page">My Account</a></li>
+        <li><a href="#sign_in_page">Sign In</a></li>
+        <li><a href="#sign_up_page">Sign Up</a></li>
+        <li><a href="#main">Log Out</a></li>
+      </ul>
+    </div>
+
+    <div data-role="panel" id="filter" data-display="push" data-position="right" data-position-fixed="true">
+      <h1>Filters</h1>
+      <ul data-role="listview">
+        <li><a href="#location_filter">Location</a></li>
+        <li><a href="#accomodation_filter">Accomodation Type</a></li>
+        <li><a href="#price_filter">Price Range</a></li>
+        <li><a href="#other_filter">Other Filters</a></li>
+      </ul>
+    </div>
+
+    <!-- LOCATION FILTER -->
+    <div data-role="panel" id="location_filter" data-display="push" data-position="right" data-position-fixed="true">
+      <h1>Location</h1>
+      <label for="search-basic" class="location_label">Search Location:</label>
+      <input type="search" name="search" id="search_location_filter" value="" placeholder="Type the postcode or location" />
+      <a href="#filter"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Save</button></a>
+    </div>
+
+    <!-- ACCOMODATION FILTER -->
+    <div data-role="panel" id="accomodation_filter" data-display="push" data-position="right" data-position-fixed="true">
+      <h1>Accomodation Type</h1>
+      <form>
+
+        <fieldset data-role="controlgroup" data-iconpos="right">
+
+          <input type="checkbox" name="accomodation_filter-h-6a" id="accomodation_filter-h-6a">
+          <label for="accomodation_filter-h-6a">House</label>
+          <input type="checkbox" name="accomodation_filter-h-6b" id="accomodation_filter-h-6b">
+          <label for="accomodation_filter-h-6b">Flat</label>
+          <input type="checkbox" name="accomodation_filter-h-6c" id="accomodation_filter-h-6c">
+          <label for="accomodation_filter-h-6c">Studio</label>
+          <input type="checkbox" name="accomodation_filter-h-6d" id="accomodation_filter-h-6d">
+          <label for="accomodation_filter-h-6d">Shared</label>
+
+        </fieldset>
+      </form>
+      <a href="#filter"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Save</button></a>
+    </div>
+
+    <!-- PRICE FILTER -->
+    <div data-role="panel" id="price_filter" data-display="push" data-position="right" data-position-fixed="true">
+      <h1>Price Range</h1>
+      <form>
+        <label for="price_filter-3">Minimum:</label>
+        <input type="number" data-clear-btn="true" name="price_filter-3" pattern="[0-9]*" id="price_filter-3" value="" placeholder="No Minimum">
+        <label for="price_filter-4">Maximum:</label>
+        <input type="number" data-clear-btn="true" name="price_filter-4" pattern="[0-9]*" id="price_filter-4" value="" placeholder="No Maximum">
+
+      </form>
+      <a href="#filter"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Save</button></a>
+    </div>
+
+    <!-- OTHER FILTERS -->
+    <div data-role="panel" id="other_filter" data-display="push" data-position="right" data-position-fixed="true">
+      <h1>Other Filters</h1>
+      <form>
+
+        <fieldset data-role="controlgroup" data-mini="true">
+
+          <legend></legend>
+          <input type="radio" name="other_filter-choice-v-2" id="other_filter-choice-v-2a" value="on" checked="checked">
+          <label for="other_filter-choice-v-2a">No Smoking</label>
+          <input type="radio" name="other_filter-choice-v-2" id="other_filter-choice-v-2b" value="off">
+          <label for="other_filter-choice-v-2b">Smoking Allowed</label>
+          <input type="radio" name="other_filter-choice-v-2" id="other_filter-choice-v-2c" value="other">
+          <label for="other_filter-choice-v-2c">Don't Mind</label>
+        </fieldset>
+      </form>
+
+      <form>
+        <input type="checkbox" name="other_filter-mini-0" id="other_filter-mini-0" data-mini="true">
+        <label for="other_filter-mini-0">Pets Allowed</label>
+        <input type="checkbox" name="other_filter-mini-1" id="other_filter-mini-1" data-mini="true">
+        <label for="other_filter-mini-1">Disabled Access</label>
+        <input type="checkbox" name="other_filter-mini-2" id="other_filter-mini-2" data-mini="true">
+        <label for="other_filter-mini-2">Parking Available</label>
+      </form>
+
+      <a href="#filter"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Save</button></a>
+
+    </div>
+
+    <div data-role="header" data-position="fixed">
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Reset Filters</a></li>
+          <li><a href="#filter" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-edit">Edit Filter</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ROOM 1 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_one.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Warren Street</li>
+            <li>Accomodation Type: Studio</li>
+            <li>Price: £600 per month</li>
+            <li>Available from: March 2022</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>No Pets Allowed</li>
+            <li>Smoking Not Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-mail">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+
+    </div>
+
+    <!-- ROOM 2 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_two.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Liverpool Street</li>
+            <li>Accomodation Type: Shared</li>
+            <li>Price: £500 per month</li>
+            <li>Available from: August 2021</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>Parking Available</li>
+            <li>No Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+    </div>
+    <!-- END OF ROOM 2-->
+
+    <!-- ROOM 3 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_three.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Marble Arch</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £900 per month</li>
+            <li>Available from: June 2021</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+    </div>
+    <!-- END OF ROOM 3-->
+
+    <!-- ROOM 4 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_four.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: East Putney</li>
+            <li>Accomodation Type: House</li>
+            <li>Price: £1200 per month</li>
+            <li>Available from: June 2021</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>No Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+    </div>
+    <!-- END OF ROOM 4-->
+
+    <!-- ROOM 5 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_five.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Kingston</li>
+            <li>Accomodation Type: Shared House</li>
+            <li>Price: £800 per month</li>
+            <li>Available from: January 2022</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>No Pets Allowed</li>
+            <li>No Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+    </div>
+    <!-- END OF ROOM 5-->
+
+    <!-- ROOM 6 -->
+    <div data-role="content" class="center margin_bottom border_bottom">
+      <div class="image_container">
+        <img src="images/room_six.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Aldwych</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £700 per month</li>
+            <li>Available from: May 2020</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">I'm Interested</button>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserve</button>
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Save</button>
+    </div>
+    <!-- END OF ROOM 6-->
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+
+  <!-- RESERVATIONS PAGE -->
+  <div data-role="page" id="reserved_listing_page">
+
+    <div data-role="panel" id="navpanel_reserve" data-display="push" data-position-fixed="true">
+      <h1>Account</h1>
+      <ul data-role="listview">
+        <li><a href="#my_account_page">My Account</a></li>
+        <li><a href="#sign_in_page">Sign In</a></li>
+        <li><a href="#sign_up_page">Sign Up</a></li>
+        <li><a href="#main">Log Out</a></li>
+      </ul>
+    </div>
+
+    <div data-role="header" data-position="fixed">
+      <a href="#navpanel_reserve" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>My Reservations</h1>
+    </div>
+
+    <!-- RESERVATIONS ROOM 5 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_five.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Kingston</li>
+            <li>Accomodation Type: Shared House</li>
+            <li>Price: £800 per month</li>
+            <li>Available from: January 2022</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>No Pets Allowed</li>
+            <li>No Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- END OF RESERVATIONS ROOM 5-->
+
+    <!-- RESERVATIONS ROOM 6 -->
+    <div data-role="content" class="center margin_bottom border_bottom">
+      <div class="image_container">
+        <img src="images/room_six.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Aldwych</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £700 per month</li>
+            <li>Available from: May 2020</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- END OF RESERVATIONS ROOM 6-->
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- INTERESTED IN PAGE -->
+  <div data-role="page" id="interested_in_page">
+
+    <div data-role="panel" id="navpanel_interested" data-display="push" data-position-fixed="true">
+      <h1>Account</h1>
+      <ul data-role="listview">
+        <li><a href="#my_account_page">My Account</a></li>
+        <li><a href="#sign_in_page">Sign In</a></li>
+        <li><a href="#sign_up_page">Sign Up</a></li>
+        <li><a href="#main">Log Out</a></li>
+      </ul>
+    </div>
+
+    <div data-role="header" data-position="fixed">
+      <a href="#navpanel_interested" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>My Interests</h1>
+    </div>
+
+    <!-- INTERESTED IN  ROOM 5 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_three.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Marble Arch</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £900 per month</li>
+            <li>Available from: June 2021</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- END OF INTERESTED IN ROOM 5-->
+
+    <!-- INTERESTED IN  ROOM 6 -->
+    <div data-role="content" class="center margin_bottom border_bottom">
+      <div class="image_container">
+        <img src="images/room_six.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Aldwych</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £700 per month</li>
+            <li>Available from: May 2020</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- END OF INTERESTED IN ROOM 6-->
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- SAVED PAGE -->
+  <div data-role="page" id="saved_page">
+
+    <div data-role="panel" id="navpanel_saved" data-display="push" data-position-fixed="true">
+      <h1>Account</h1>
+      <ul data-role="listview">
+        <li><a href="#my_account_page">My Account</a></li>
+        <li><a href="#sign_in_page">Sign In</a></li>
+        <li><a href="#sign_up_page">Sign Up</a></li>
+        <li><a href="#main">Log Out</a></li>
+      </ul>
+    </div>
+
+    <div data-role="header" data-position="fixed">
+      <a href="#navpanel_saved" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>My Saved Rooms</h1>
+    </div>
+
+    <!-- SAVED ROOM 5 -->
+    <div data-role="content" class="center border_bottom">
+      <div class="image_container">
+        <img src="images/room_three.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Marble Arch</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £900 per month</li>
+            <li>Available from: June 2021</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- END OF SAVED ROOM 5-->
+
+    <!-- SAVED ROOM 6 -->
+    <div data-role="content" class="center margin_bottom border_bottom">
+      <div class="image_container">
+        <img src="images/room_six.jpg" alt="">
+      </div>
+      <div class="ui-grid-a margin_top_text">
+
+        <div class="ui-block-a">
+          <ul class="room_details">
+            <li>Location: Aldwych</li>
+            <li>Accomodation Type: Flat</li>
+            <li>Price: £700 per month</li>
+            <li>Available from: May 2020</li>
+          </ul>
+        </div>
+
+        <div class="ui-block-b">
+          <ul class="room_details">
+            <li>Pets Allowed</li>
+            <li>Smoking Allowed</li>
+            <li>No Parking Available</li>
+            <li>Disabled Access Available</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View Room</button></a>
+      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
+    </div>
+    <!-- SAVED ROOM 6-->
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- SIGN IN PAGE -->
+  <div data-role="page" id="sign_in_page">
+
+    <div data-role="header" data-position="fixed">
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Sign In</h1>
+    </div>
+
+    <div data-role="content" class="center">
+      <form>
+        <input type="email" data-clear-btn="false" name="email-1" id="email-1" value="" placeholder="Email">
+        <input type="password" data-clear-btn="true" name="password-2" id="password-2" value="" autocomplete="off" placeholder="Password">
+      </form>
+      <a href="#my_account_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Sign In</button></a>
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- SIGN UP PAGE -->
+  <div data-role="page" id="sign_up_page">
+
+    <div data-role="header" data-position="fixed">
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Sign In</h1>
+    </div>
+
+    <div data-role="content" class="center">
+      <form>
+        <input type="text" name="text-1" id="text-1" value="" placeholder="First Name">
+        <input type="text" name="text-1" id="text-2" value="" placeholder="Last Name">
+        <input type="email" data-clear-btn="false" name="email-1" id="email-2" value="" placeholder="Email">
+        <input type="password" data-clear-btn="true" name="password-2" id="password-3" value="" autocomplete="off" placeholder="Password">
+        <input type="password" data-clear-btn="true" name="password-2" id="password-4" value="" autocomplete="off" placeholder="Confirm Password">
+
+      </form>
+      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Sign Up</button></a>
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+
+  <!-- SETTINGS PAGE -->
+  <div data-role="page" id="settings_page">
+
+    <div data-role="header" data-position="fixed">
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Settings</h1>
+    </div>
+
+    <div data-role="content" class="center">
+      <a href="#change_password_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Change Password</button></a>
+      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Delete Account</button></a>
+
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD PAGE -->
+  <div data-role="page" id="change_password_page">
+
+    <div data-role="header" data-position="fixed">
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+    <div data-role="content" class="center">
+      <h1>Change Password</h1>
+    </div>
+
+    <div data-role="content" class="center">
+      <input type="password" data-clear-btn="true" name="password-2" id="password-5" value="" autocomplete="off" placeholder="New Password">
+      <input type="password" data-clear-btn="true" name="password-2" id="password-6" value="" autocomplete="off" placeholder="Confirm New Password">
+      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Save</button></a>
+
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+<!-- VIEW ROOM PAGE -->
+  <div data-role="page" id="view_room_page">
+
+    <div data-role="header" data-position="fixed">
+
+      <h1><a href="#main">A to Z</a></h1>
+      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+
+    </div>
+
+      <div data-role="content" class="center margin_bottom ">
+        <div class="image_container">
+          <img src="images/room_six.jpg" alt="">
+        </div>
+        <div>
+          <h1>Senate Aldwych House</h1>
+          <p>This is a mock up landing page which is where the clicked room will be landing to. This is where the description for the location will go, with extra details</p>
+        </div>
+        <h3>More Information</h3>
+        <div class="ui-grid-a margin_top_text border_bottom">
+
+          <div class="ui-block-a">
+            <ul class="room_details">
+              <li>Location: Aldwych</li>
+              <li>Accomodation Type: Flat</li>
+              <li>Price: £700 per month</li>
+              <li>Available from: May 2020</li>
+            </ul>
+          </div>
+
+          <div class="ui-block-b">
+            <ul class="room_details">
+              <li>Pets Allowed</li>
+              <li>Smoking Allowed</li>
+              <li>No Parking Available</li>
+              <li>Disabled Access Available</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ui-grid-a margin_top_text">
+
+          <div class="ui-block-a">
+            <ul class="room_details">
+              <li>Wifi Available</li>
+              <li>Close to Center</li>
+              <li>Buses close by: N74, N21, N205</li>
+              <li>Stations close by: Aldwych Station</li>
+            </ul>
+          </div>
+
+          <div class="ui-block-b">
+            <ul class="room_details">
+              <li>Restaurants nearby: Nando's, Pizza Hut, YO Sushi</li>
+              <li>Shops nearby: Sainsbury's, Co-op</li>
+              <li>Activities near by: Park, Pure Gym, Bowling Alley</li>
+              <li>Distance from university: 2.5 miles</li>
+            </ul>
+          </div>
+        </div>
+
+
+</div>
+    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
+      <a href="about.html" data-prefetch>About Us</a>
+      <a href="contact.html" data-prefetch> Contact Us </a>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
