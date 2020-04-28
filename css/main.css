@@ -1,3 +1,12 @@
+*{
+  color: #fff;
+}
+
+::placeholder{
+  color: #fff;
+  opacity: 0.3;
+}
+
 .center {
   margin-right: 10vw;
   margin-left: 10vw;
@@ -42,8 +51,16 @@ a:link {
   margin-top: 50px;
 }
 
+.accomodationItem{
+  height: 100vh;
+}
+
+.favouriteButtonColor{
+  color: red !important;
+}
+
 .image_container {
-  width: 100vw;
+  width: 80vw;
   height: 250px;
   overflow: hidden;
 }
