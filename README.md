@@ -69,6 +69,7 @@ Themeroller styles located at: './css/theme-roller.css/'
 a) Local Storage (24%)
 
 Local storage available in main.js
+The images and details in hte pages are all dynamic from the local storage.
 
 b) Physical Events (12%)
 

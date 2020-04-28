@@ -206,6 +206,7 @@ function userLoggedIn() {
     });
 }
 
+// Tried creating PopUps via jQuery, but errors occur. Had to manually type in Pop Up Divs in HTML
 function insertImagePopUps(id, firstImage, secondImage, thirdImage) {
 
     $(".popUpsDiv").append(
@@ -225,8 +226,11 @@ function insertImagePopUps(id, firstImage, secondImage, thirdImage) {
         '  </div>' +
         '</div>'
     )
+}
 
 
+function userGreeting(firstName, lastName) {
+    $(".user-greeting").append(firstName + " " + lastName);
 }
 
 $(document).on("pagecontainershow", function (e, ui) {
@@ -299,7 +303,7 @@ $(document).on("pagecontainershow", function (e, ui) {
 
 
         $(".popUpsDiv").insertAfter(".accomodation_listings")
-        
+
 
         $(".image-1").on("swipeleft", function (event) {
             $(".row-images").animate({ marginLeft: "-75vw" }, 1000);
@@ -413,7 +417,19 @@ $(document).on("pagecontainershow", function (e, ui) {
 
     }
 
+    if (page == "my_account_page") {
 
 
+
+        getDataFromStorage().student_details.registration.forEach(item => {
+
+            if (item.userLoggedIn) {
+                userGreeting(item.firstName.value, item.lastName.value);
+            }
+        });
+
+
+
+    }
 
 })
