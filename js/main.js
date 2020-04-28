@@ -1,3 +1,4 @@
+//This is the JSOn that is being used as a temporary store for the application. It is then pushed to the local storage when needed
 let user_data = {
     student_details: {
         "registration": [{
@@ -89,7 +90,7 @@ let user_data = {
     }
 }
 
-
+//Refreshes the page when user logs out. Bringing back the state of the local store to the default
 function refreshPage() {
     jQuery.mobile.changePage(window.location.href, {
         allowSamePageTransition: true,
@@ -98,6 +99,7 @@ function refreshPage() {
     });
 }
 
+//function used to push the data manipulated to the local storage
 function saveInStorage() {
     // localStorage.clear();
     if (typeof (Storage) != "underfined") {
@@ -110,19 +112,22 @@ function saveInStorage() {
     }
 }
 
-
+//function used to get data from the local storage
 function getDataFromStorage() {
     let userDetails =
         JSON.parse(localStorage.getItem('user_data'));
     return userDetails;
 }
 
+// used to clear the data storage -- unable to use as it compeltely clears out the storage leaving all objects and items as null
 function clearDataStorage() {
     localStorage.clear();
 }
 saveInStorage();
 // console.log(getDataFromStorage().student_details.student_number);
 
+
+//function used to populate the listing page. All parameters passed on coming from the local storage
 function accomodationListItem(id, image, location, parkingAvailable, petsAllowed, priceRange, type, disabledAccess, favourite, description, firstImage, secondImage, thirdImage) {
 
 
@@ -155,6 +160,7 @@ function accomodationListItem(id, image, location, parkingAvailable, petsAllowed
         favouriteText = "Favourite"
     }
 
+    //used for the pop up ID
     let popUpId = id + "_images";
 
     // insertImagePopUps(popUpId, firstImage, secondImage, thirdImage);
@@ -228,19 +234,25 @@ function insertImagePopUps(id, firstImage, secondImage, thirdImage) {
     )
 }
 
-
+//A user greeting in the My Account page to greet the user - getting the first name and last name from the local storage
 function userGreeting(firstName, lastName) {
     $(".user-greeting").append(firstName + " " + lastName);
 }
 
+
+//This has all the events happening within the application based on the pages it is currently on
 $(document).on("pagecontainershow", function (e, ui) {
 
     let page = ui.toPage[0].id;
 
+
+    //Occurence when the page is on Listings Page
     if (page == "listings_page") {
+        //function ran to show or hide the LogOut/Sign In/ Register buttons in the navigation, based on if the user is logged in
 
         userLoggedIn();
 
+        //initial population of the listings page
         listAccomodations();
 
         function listAccomodations() {
@@ -267,9 +279,7 @@ $(document).on("pagecontainershow", function (e, ui) {
 
         }//listAccomodations function
 
-        //initial run
-        // listAccomodations();
-
+        //used for interaction with the favourite button
         $('.favourite-button').click(function () {
             saveInStorage();
             user_data.student_details.accomodations.accomodation_items.forEach(item => {
@@ -301,10 +311,7 @@ $(document).on("pagecontainershow", function (e, ui) {
 
         });
 
-
-        $(".popUpsDiv").insertAfter(".accomodation_listings")
-
-
+        //These are the functions for the images. When swiping left/right, the row itself is moving via margin manipulation
         $(".image-1").on("swipeleft", function (event) {
             $(".row-images").animate({ marginLeft: "-75vw" }, 1000);
         })
@@ -324,12 +331,13 @@ $(document).on("pagecontainershow", function (e, ui) {
 
     }//listings page end
 
+    //Occurenc ein the Favourites Page
     if (page == "favourites_page") {
 
+        //function ran to show or hide the LogOut/Sign In/ Register buttons in the navigation, based on if the user is logged in
         userLoggedIn();
 
         $(".favourites_list").html("");
-
 
         getDataFromStorage().student_details.accomodations.accomodation_items.forEach(item => {
 
@@ -353,6 +361,8 @@ $(document).on("pagecontainershow", function (e, ui) {
             }
 
         });//forEach
+
+        //used for interaction with the favourite button
 
         $('.favourite-button').click(function () {
             saveInStorage();
@@ -390,7 +400,7 @@ $(document).on("pagecontainershow", function (e, ui) {
 
     }//favourite page end
 
-
+    //Occurence in the Register Page -- getting the data from the form using .serializeArray() and assigning them to the temporary user-data, which is then pushed to the local storage
     if (page == "register_page") {
 
         $("#form_button").click(function () {
@@ -417,9 +427,8 @@ $(document).on("pagecontainershow", function (e, ui) {
 
     }
 
+    //occurence in the my account page -- a nice little greeting for the current user logged in
     if (page == "my_account_page") {
-
-
 
         getDataFromStorage().student_details.registration.forEach(item => {
 

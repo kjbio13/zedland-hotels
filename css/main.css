@@ -3,7 +3,6 @@
 }
 
 
-
 ::placeholder{
   color: #fff;
   opacity: 0.3;
@@ -16,15 +15,13 @@
   text-align: center;
 }
 
-.margin_top {
+.margin-top {
   margin-top: 15vh;
   margin-bottom: 20vh;
   text-align: center;
 }
 
-
-
-.margin_bottom{
+.margin-bottom{
   margin-bottom: 25vh;
 }
 
@@ -53,7 +50,7 @@ a:link {
   margin-top: -30px;
 }
 
-.location_label {
+.location-label {
   margin-top: 50px;
 }
 
