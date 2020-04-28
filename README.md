@@ -1,6 +1,5 @@
 # zedland-hotels
 
-////////////////////////////////////////////////////////////////////////
 ##### 1. At least two examples of device integration (e.g. phone, email, SMS, etc.). (5%)
 + Call, SMS and Email
 + Location: contact.html
