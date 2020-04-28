@@ -51,6 +51,11 @@ required to implement full validation or programmatic form submission (e.g.
 PHP). The registration form should be located in the correct position within the
 application. (15%)
 
+Registration form available at id="register_page"
+
+The registration for data is also being set on to the local storage.
+
+
 /////////////////////////////////////////////////////////////////////////////
 4. You should generate an appropriate colour swatch using ThemeRoller, and
 apply that swatch to your application (Ideally, the swatch should implement the

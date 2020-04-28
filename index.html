@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
   <link rel="stylesheet" href="css/theme-roller.css" />
   <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 </head>
@@ -53,6 +52,8 @@
       <a href="#sign_in_page"><button class="ui-btn ui-btn-inline">Sign In</button></a>
       <a href="#register_page"><button class="ui-btn ui-btn-inline">Register</button></a>
 
+
+
       <div class="">
         <a href="forgotten_password.html">Forgot Password</a>
       </div>
@@ -68,18 +69,14 @@
   <!-- MY ACCOUNT PAGE -->
   <div data-role="page" id="my_account_page">
     <div data-role="header" data-position="fixed">
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
     <div data-role="content" class="center margin_top">
 
       <h4>Hi Kevin!</h4>
-      <a href="#reserved_listing_page"><button
-          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-tag">Reserved</button></a>
-      <a href="#interested_in_page"><button
-          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-mail">Interested In</button></a>
-      <a href="#saved_page"><button
+      <a href="#favourites_page"><button
           class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart">Saved</button></a>
       <a href="#settings_page"><button
           class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-gear">Settings</button></a>
@@ -95,17 +92,25 @@
   <div data-role="page" id="listings_page">
 
     <div data-role="panel" id="navpanel" data-display="push" data-position-fixed="true">
-      <h4>Account</h4>
+      <h4>ACCOUNT</h4>
       <ul data-role="listview">
         <li><a href="#my_account_page">My Account</a></li>
-        <li><a href="#sign_in_page">Sign In</a></li>
-        <li><a href="#register_page">Register</a></li>
-        <li><a href="#main">Log Out</a></li>
+        <li><a href="#listings_page">Listings</a></li>
+        <li><a href="#favourites_page">My Favourites</a></li>
+        <li class="userLoggedOut"><a href="#sign_in_page">Sign In</a></li>
+        <li class="userLoggedOut"><a href="#register_page">Register</a></li>
+        <li class="userLoggedIn logOut"><a href="index.html">Log Out</a></li>
       </ul>
     </div>
 
     <div data-role="panel" id="filter" data-display="push" data-position="right" data-position-fixed="true">
-      <h4>Filters</h4>
+      <h4>Filters <a href="#popupInfo" data-rel="popup" data-transition="pop"
+          class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
+          title="Learn more">
+          <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+              <p>Apologies, this functionality is not part of the assessment requirements</p>
+          </div>
+        </a></h4>
       <ul data-role="listview">
         <li><a href="#location_filter">Location</a></li>
         <li><a href="#accomodation_filter">Accomodation Type</a></li>
@@ -116,10 +121,25 @@
 
     <!-- LOCATION FILTER -->
     <div data-role="panel" id="location_filter" data-display="push" data-position="right" data-position-fixed="true">
-      <h4>Location</h4>
-      <label for="search-basic" class="location_label">Search Location:</label>
-      <input type="search" name="search" id="search_location_filter" value=""
-        placeholder="Type the postcode or location" />
+      <h4>Zedland Campuses</h4>
+      <fieldset data-role="controlgroup" data-iconpos="right">
+
+        <input type="checkbox" name="checkbox-c-6a" id="checkbox-c-6a">
+        <label for="checkbox-c-6a">Jade Hall</label>
+
+        <input type="checkbox" name="checkbox-c-6b" id="checkbox-c-6b">
+        <label for="checkbox-c-6b">Crystal Goode</label>
+
+        <input type="checkbox" name="checkbox-c-6c" id="checkbox-c-6c">
+        <label for="checkbox-c-6c">St. Heidi</label>
+
+        <input type="checkbox" name="checkbox-c-6d" id="checkbox-c-6d">
+        <label for="checkbox-c-6d">Jackie Cox Campus</label>
+
+        <input type="checkbox" name="checkbox-c-6e" id="checkbox-c-6e">
+        <label for="checkbox-c-6e">Sakura Street</label>
+
+      </fieldset>
       <a href="#filter"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Save</button></a>
     </div>
 
@@ -177,7 +197,7 @@
     </div>
 
     <div data-role="header" data-position="fixed">
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
 
       <div data-role="navbar">
@@ -190,286 +210,45 @@
 
     </div>
 
-    <div class="accomodation_listings">
-    <!-- The listings here are taken from local storage.json. See main.js --> 
+    <div class="accomodation_listings margin_bottom">
+      <!-- The listings here are taken from local storage.json. See main.js -->
     </div>
-  </div>
-
-  <!-- RESERVATIONS PAGE -->
-  <div data-role="page" id="reserved_listing_page">
-
-    <div data-role="panel" id="navpanel_reserve" data-display="push" data-position-fixed="true">
-      <h4>Account</h4>
-      <ul data-role="listview">
-        <li><a href="#my_account_page">My Account</a></li>
-        <li><a href="#sign_in_page">Sign In</a></li>
-        <li><a href="#register_page">Register</a></li>
-        <li><a href="#main">Log Out</a></li>
-      </ul>
-    </div>
-
-    <div data-role="header" data-position="fixed">
-      <a href="#navpanel_reserve" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
-
-      <h4><a href="#main">A to Z</a></h4>
-      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
-
-    </div>
-    <div data-role="content" class="center">
-      <h4>My Reservations</h4>
-    </div>
-
-    <!-- RESERVATIONS ROOM 5 -->
-    <div data-role="content" class="center border_bottom">
-      <div class="image_container">
-        <img src="images/room_five.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
-
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Kingston</li>
-            <li>Accomodation Type: Shared House</li>
-            <li>Price: £800 per month</li>
-            <li>Available from: January 2022</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>No Pets Allowed</li>
-            <li>No Smoking Allowed</li>
-            <li>No Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- END OF RESERVATIONS ROOM 5-->
-
-    <!-- RESERVATIONS ROOM 6 -->
-    <div data-role="content" class="center margin_bottom border_bottom">
-      <div class="image_container">
-        <img src="images/room_six.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
-
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Aldwych</li>
-            <li>Accomodation Type: Flat</li>
-            <li>Price: £700 per month</li>
-            <li>Available from: May 2020</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>Pets Allowed</li>
-            <li>Smoking Allowed</li>
-            <li>No Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- END OF RESERVATIONS ROOM 6-->
-
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
       <a href="about.html" data-prefetch>About Us</a>
       <a href="contact.html" data-prefetch> Contact Us </a>
     </div>
   </div>
 
-  <!-- INTERESTED IN PAGE -->
-  <div data-role="page" id="interested_in_page">
-
-    <div data-role="panel" id="navpanel_interested" data-display="push" data-position-fixed="true">
-      <h4>Account</h4>
-      <ul data-role="listview">
-        <li><a href="#my_account_page">My Account</a></li>
-        <li><a href="#sign_in_page">Sign In</a></li>
-        <li><a href="#register_page">Register</a></li>
-        <li><a href="#main">Log Out</a></li>
-      </ul>
-    </div>
-
-    <div data-role="header" data-position="fixed">
-      <a href="#navpanel_interested" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
-
-      <h4><a href="#main">A to Z</a></h4>
-      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
-
-    </div>
-    <div data-role="content" class="center">
-      <h4>My Interests</h4>
-    </div>
-
-    <!-- INTERESTED IN  ROOM 5 -->
-    <div data-role="content" class="center border_bottom">
-      <div class="image_container">
-        <img src="images/room_three.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
-
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Marble Arch</li>
-            <li>Accomodation Type: Flat</li>
-            <li>Price: £900 per month</li>
-            <li>Available from: June 2021</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>Pets Allowed</li>
-            <li>Smoking Allowed</li>
-            <li>Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- END OF INTERESTED IN ROOM 5-->
-
-    <!-- INTERESTED IN  ROOM 6 -->
-    <div data-role="content" class="center margin_bottom border_bottom">
-      <div class="image_container">
-        <img src="images/room_six.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
-
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Aldwych</li>
-            <li>Accomodation Type: Flat</li>
-            <li>Price: £700 per month</li>
-            <li>Available from: May 2020</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>Pets Allowed</li>
-            <li>Smoking Allowed</li>
-            <li>No Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- END OF INTERESTED IN ROOM 6-->
-
-    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
-      <a href="about.html" data-prefetch>About Us</a>
-      <a href="contact.html" data-prefetch> Contact Us </a>
-    </div>
-  </div>
-
-  <!-- SAVED PAGE -->
-  <div data-role="page" id="saved_page">
+  <!-- FAVOURITED PAGE -->
+  <div data-role="page" id="favourites_page">
 
     <div data-role="panel" id="navpanel_saved" data-display="push" data-position-fixed="true">
-      <h4>Account</h4>
+      <h4>ACCOUNT</h4>
       <ul data-role="listview">
         <li><a href="#my_account_page">My Account</a></li>
-        <li><a href="#sign_in_page">Sign In</a></li>
-        <li><a href="#sign_up_page">Register</a></li>
-        <li><a href="#main">Log Out</a></li>
+        <li><a href="#listings_page">Listings</a></li>
+        <li><a href="#favourites_page">My Favourites</a></li>
+        <li class="userLoggedOut"><a href="#sign_in_page">Sign In</a></li>
+        <li class="userLoggedOut"><a href="#register_page">Register</a></li>
+        <li class="userLoggedIn"><a href="#main">Log Out</a></li>
       </ul>
     </div>
 
     <div data-role="header" data-position="fixed">
       <a href="#navpanel_saved" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
 
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
-    <div data-role="content" class="center">
-      <h4>My Saved Rooms</h4>
+    <div class="center">
+      <h4>My Favourited Rooms</h4>
+    </div>
+    <div class="favourites_list margin_bottom">
+      <!-- The listings here are taken from local storage.json. See main.js -->
     </div>
 
-    <!-- SAVED ROOM 5 -->
-    <div data-role="content" class="center border_bottom">
-      <div class="image_container">
-        <img src="images/room_three.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
 
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Marble Arch</li>
-            <li>Accomodation Type: Flat</li>
-            <li>Price: £900 per month</li>
-            <li>Available from: June 2021</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>Pets Allowed</li>
-            <li>Smoking Allowed</li>
-            <li>Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- END OF SAVED ROOM 5-->
-
-    <!-- SAVED ROOM 6 -->
-    <div data-role="content" class="center margin_bottom border_bottom">
-      <div class="image_container">
-        <img src="images/room_six.jpg" alt="">
-      </div>
-      <div class="ui-grid-a margin_top_text">
-
-        <div class="ui-block-a">
-          <ul class="room_details">
-            <li>Location: Aldwych</li>
-            <li>Accomodation Type: Flat</li>
-            <li>Price: £700 per month</li>
-            <li>Available from: May 2020</li>
-          </ul>
-        </div>
-
-        <div class="ui-block-b">
-          <ul class="room_details">
-            <li>Pets Allowed</li>
-            <li>Smoking Allowed</li>
-            <li>No Parking Available</li>
-            <li>Disabled Access Available</li>
-          </ul>
-        </div>
-      </div>
-
-      <a href="#view_room_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r">View
-          Room</button></a>
-      <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Remove</button>
-    </div>
-    <!-- SAVED ROOM 6-->
 
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
       <a href="about.html" data-prefetch>About Us</a>
@@ -482,7 +261,7 @@
 
     <div data-role="header" data-position="fixed">
 
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
@@ -495,10 +274,22 @@
         <input type="email" data-clear-btn="false" name="email-1" id="email-1" value="" placeholder="Email">
         <input type="password" data-clear-btn="true" name="password-2" id="password-2" value="" autocomplete="off"
           placeholder="Password">
+        <a href="#sign_in_pop_up" data-rel="popup"><button
+            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Sign
+            In</button></a>
+        <a href="#register_page"><button
+            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Register</button></a>
+
       </form>
-      <a href="#my_account_page"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Sign
-          In</button></a>
+
     </div>
+
+    <div data-role="popup" id="sign_in_pop_up">
+      <p>This functionality is not part of the assessment requirements. Please click Register to continue.</p>
+    </div>
+
+
+
 
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
       <a href="about.html" data-prefetch>About Us</a>
@@ -511,16 +302,16 @@
 
     <div data-role="header" data-position="fixed">
 
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
     <div data-role="content" class="center">
-      <h4>Register</h4>
+      <h3>REGISTER</h3>
     </div>
 
     <div data-role="content" class="center">
-      <form>
+      <form id="register_form">
 
 
         <input type="text" name="student_number" id="student_number" value="" placeholder="Student No.">
@@ -549,12 +340,12 @@
           </fieldset>
         </div>
         <label for="start-date">Start Date:</label>
-        <input type="date" name="start-date" id="start-date">
-        <input type="email" data-clear-btn="false" name="email-1" id="email-2" value="" placeholder="Email">
-        <input type="password" data-clear-btn="true" name="password-2" id="password-3" value="" autocomplete="off"
+        <input type="date" name="start_date" id="start_date">
+        <input type="email" data-clear-btn="false" name="email" id="email" value="" placeholder="Email">
+        <input type="password" data-clear-btn="true" name="password" id="password" value="" autocomplete="off"
           placeholder="Password">
-        <input type="password" data-clear-btn="true" name="password-2" id="password-4" value="" autocomplete="off"
-          placeholder="Confirm Password">
+        <input type="password" data-clear-btn="true" name="confirm_password" id="confirm_password" value=""
+          autocomplete="off" placeholder="Confirm Password">
 
         <div data-role="collapsible">
 
@@ -572,7 +363,9 @@
           </fieldset>
         </div>
       </form>
-      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Register</button></a>
+      <a href="#listings_page">
+        <button id="form_button"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Register</button></a>
     </div>
 
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
@@ -587,7 +380,7 @@
 
     <div data-role="header" data-position="fixed">
 
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
@@ -598,9 +391,14 @@
     <div data-role="content" class="center">
       <a href="#change_password_page"><button
           class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Change Password</button></a>
-      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Delete
-          Account</button></a>
-
+          <a href="#popupCloseRight" data-rel="popup"><button
+            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Delete Account</button></a>
+  
+        <div data-role="popup" id="popupCloseRight" class="ui-content" style="max-width:280px">
+              <a href="#" data-rel="back"
+            class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+          <p>Apologies, this functionality is not part of the assessment requirements</p>
+        </div>
     </div>
 
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
@@ -614,7 +412,7 @@
 
     <div data-role="header" data-position="fixed">
 
-      <h4><a href="#main">A to Z</a></h4>
+      <h4>A to Z</a></h4>
       <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
 
     </div>
@@ -627,8 +425,14 @@
         placeholder="New Password">
       <input type="password" data-clear-btn="true" name="password-2" id="password-6" value="" autocomplete="off"
         placeholder="Confirm New Password">
-      <a href="#main"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Save</button></a>
+      <a href="#popupCloseRight" data-rel="popup"><button
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user">Save</button></a>
 
+      <div data-role="popup" id="popupCloseRight" class="ui-content" style="max-width:280px">
+            <a href="#" data-rel="back"
+          class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>Apologies, this functionality is not part of the assessment requirements</p>
+      </div>
     </div>
 
     <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
@@ -637,26 +441,8 @@
     </div>
   </div>
 
-  <!-- VIEW ROOM PAGE -->
-  <div data-role="page" id="room_1">
-
-    <div data-role="header" data-position="fixed">
-
-      <h4><a href="#main">A to Z</a></h4>
-      <a href="#" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
-
-    </div>
-
-    <div data-role="content" class="center margin_bottom ">
-
-      <div class="room_1"></div>
-    </div>
-    <div data-role="footer" class="ui-bar" data-position="fixed" data-fullscreen="true" data-id="footernav">
-      <a href="about.html" data-prefetch>About Us</a>
-      <a href="contact.html" data-prefetch> Contact Us </a>
-    </div>
-  </div>
-
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

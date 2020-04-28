@@ -1,8 +1,15 @@
 let user_data = {
     student_details: {
-        "student_number": "",
-        "first_name": "",
-        "last_name": "",
+        "registration": [{
+
+            "studentNumber": 0,
+            "firstName": "",
+            "lastName": "",
+            "startDate": new Date(),
+            "email": "",
+            "password": "",
+            "userLoggedIn": false
+        }],
         "accomodations": {
             "accomodation_items": [
                 {
@@ -27,7 +34,7 @@ let user_data = {
                     "disabledAccess": false,
                     "parkingAvailable": true,
                     "description": "Einstein used to live here they said. George Einstein, my brother-in-law that is.",
-                    "favourite": true
+                    "favourite": false
                 },
                 {
                     "id": "room_3",
@@ -51,7 +58,7 @@ let user_data = {
                     "disabledAccess": true,
                     "parkingAvailable": false,
                     "description": "Studio designd to look like the 70's.",
-                    "favourite": true
+                    "favourite": false
                 },
                 {
                     "id": "room_5",
@@ -83,7 +90,16 @@ let user_data = {
 }
 
 
+function refreshPage() {
+    jQuery.mobile.changePage(window.location.href, {
+        allowSamePageTransition: true,
+        transition: 'none',
+        reloadPage: true
+    });
+}
+
 function saveInStorage() {
+    // localStorage.clear();
     if (typeof (Storage) != "underfined") {
 
         localStorage.setItem("user_data",
@@ -101,12 +117,15 @@ function getDataFromStorage() {
     return userDetails;
 }
 
+function clearDataStorage() {
+    localStorage.clear();
+}
 saveInStorage();
 // console.log(getDataFromStorage().student_details.student_number);
 
-function accomodationListItem(id, image, location, parkingAvailable, petsAllowed, priceRange, type, disabledAccess, favourite) {
+function accomodationListItem(id, image, location, parkingAvailable, petsAllowed, priceRange, type, disabledAccess, favourite, description) {
 
-    let favouriteButtonColor = "";
+
 
     if (petsAllowed) {
         petsAllowed = ""
@@ -126,8 +145,14 @@ function accomodationListItem(id, image, location, parkingAvailable, petsAllowed
         disabledAccess = "No"
     }
 
+    let favouriteButtonColor = "";
+    let favouriteText = ""
+
     if (favourite) {
         favouriteButtonColor = "favouriteButtonColor"
+        favouriteText = "Added to Favourites"
+    } else if (!favourite) {
+        favouriteText = "Favourite"
     }
 
     return (
@@ -137,7 +162,7 @@ function accomodationListItem(id, image, location, parkingAvailable, petsAllowed
         '</div>' +
         '<p>Click image to view photos</p>' +
         '<div class="ui-grid-a margin_top_text">' +
-
+        '<h6>' + description + '</h6>' +
         '<div class="ui-block-a">' +
         '<ul class="room_details">' +
         '<li>Location: ' + location + '</li>' +
@@ -154,9 +179,25 @@ function accomodationListItem(id, image, location, parkingAvailable, petsAllowed
         '</ul>' +
         '</div>' +
         '</div>' +
-        '<button id="' + id + '" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart ' + favouriteButtonColor + '">Favourite</button>' +
+        '<button id="' + id + '" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-heart favourite-button ' + favouriteButtonColor + '">' + favouriteText + '</button>' +
         '</div>'
     )
+}
+
+//Check if user is logged in. If false, Sign and Register will appear. Else, Log Out Will
+function userLoggedIn() {
+    getDataFromStorage().student_details.registration.forEach(item => {
+        console.log(item.userLoggedIn);
+        if (item.userLoggedIn === true) {
+            $(".userLoggedOut").addClass("display-none");
+            $(".userLoggedIn").removeClass("display-none");
+
+
+        } else if (item.userLoggedIn === false) {
+            $(".userLoggedIn").addClass("display-none");
+            $(".userLoggedOut").removeClass("display-none");
+        }
+    });
 }
 
 $(document).on("pagecontainershow", function (e, ui) {
@@ -165,37 +206,161 @@ $(document).on("pagecontainershow", function (e, ui) {
 
     if (page == "listings_page") {
 
+        userLoggedIn();
+
+        listAccomodations();
+
         function listAccomodations() {
+            $(".accomodation_listings").html("");
             getDataFromStorage().student_details.accomodations.accomodation_items.forEach(item => {
-                    $(".accomodation_listings").append(
-                        accomodationListItem(
-                            item.id,
-                            item.image[0],
-                            item.location,
-                            item.parkingAvailable,
-                            item.petsAllowed,
-                            item.priceRange,
-                            item.type,
-                            item.disabledAccess,
-                            item.favourite
-                        ));
-                });
+                $(".accomodation_listings").append(
+                    accomodationListItem(
+                        item.id,
+                        item.image[0],
+                        item.location,
+                        item.parkingAvailable,
+                        item.petsAllowed,
+                        item.priceRange,
+                        item.type,
+                        item.disabledAccess,
+                        item.favourite,
+                        item.description
+                    ));
+            });
 
 
         }//listAccomodations function
 
         //initial run
-        listAccomodations();
+        // listAccomodations();
 
-        $('#room_1').click(function () {
+        $('.favourite-button').click(function () {
+            saveInStorage();
             user_data.student_details.accomodations.accomodation_items.forEach(item => {
-                item.favourite = !item.favourite;
-                saveInStorage();
-                listAccomodations();
+
+                let buttonAttribute = $(this).attr("id");
+                console.log(buttonAttribute);
+
+                if (item.id === buttonAttribute) {
+
+                    if (item.favourite === true) {
+                        item.favourite = false;
+                        $(this).removeClass("favouriteButtonColor").html("Favourite");
+                        saveInStorage();
+                    }
+                    else if (item.favourite === false) {
+                        item.favourite = true;
+                        $(this).addClass("favouriteButtonColor").html("Added to Favourites");
+                        saveInStorage();
+                    } else {
+                        return;
+                    }
+
+                }
+
             });
-            console.log(getDataFromStorage().student_details.accomodations.accomodation_items[0].favourite);
+
+            console.log(user_data.student_details.accomodations.accomodation_items[0].favourite + "userdata");
+            console.log(getDataFromStorage().student_details.accomodations.accomodation_items[0].favourite + "storage");
 
         });
 
+
     }//listings page end
+
+    if (page == "favourites_page") {
+
+        userLoggedIn();
+
+        $(".favourites_list").html("");
+
+
+        getDataFromStorage().student_details.accomodations.accomodation_items.forEach(item => {
+
+            if (item.favourite === true) {
+
+                $(".favourites_list").append(
+
+                    accomodationListItem(
+                        item.id + "_favourite",
+                        item.image[0],
+                        item.location,
+                        item.parkingAvailable,
+                        item.petsAllowed,
+                        item.priceRange,
+                        item.type,
+                        item.disabledAccess,
+                        item.favourite,
+                        item.description
+                    ));
+
+            }
+
+        });//forEach
+
+        $('.favourite-button').click(function () {
+            saveInStorage();
+            user_data.student_details.accomodations.accomodation_items.forEach(item => {
+
+                let buttonAttribute = $(this).attr("id");
+
+                console.log(buttonAttribute);
+
+                if (item.id === buttonAttribute.substring(0, 6)) {
+
+                    if (item.favourite === true) {
+                        item.favourite = false;
+                        $(this).removeClass("favouriteButtonColor").html("Favourite");
+                        saveInStorage();
+                    }
+                    else if (item.favourite === false) {
+                        item.favourite = true;
+                        $(this).addClass("favouriteButtonColor").html("Added to Favourites");
+                        saveInStorage();
+                    } else {
+                        return;
+                    }
+
+                }
+
+            });
+
+            console.log(user_data.student_details.accomodations.accomodation_items[0].favourite + "userdata");
+            console.log(getDataFromStorage().student_details.accomodations.accomodation_items[0].favourite + "storage");
+
+        });
+
+
+
+    }//favourite page end
+
+
+    if (page == "register_page") {
+
+        $("#form_button").click(function () {
+            console.log($("#register_form").serializeArray());
+
+            let registerData = $("#register_form").serializeArray();
+
+
+            user_data.student_details.registration.forEach(item => {
+                console.log(item.studentNumber);
+                item.studentNumber = registerData[0];
+                item.firstName = registerData[1];
+                item.lastName = registerData[2];
+                item.startDate = registerData[3];
+                item.email = registerData[4];
+                item.password = registerData[5];
+                item.userLoggedIn = true;
+
+            });
+
+
+            saveInStorage();
+        })
+
+    }
+
+
+
 })
