@@ -96,7 +96,7 @@ a:link {
 }
 
 .row-images {
-  /* display: flex; */
+  display: flex;
   touch-action: none;
 
   /* margin-left: -75vw; */
