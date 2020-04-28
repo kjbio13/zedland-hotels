@@ -123,7 +123,7 @@ function clearDataStorage() {
 saveInStorage();
 // console.log(getDataFromStorage().student_details.student_number);
 
-function accomodationListItem(id, image, location, parkingAvailable, petsAllowed, priceRange, type, disabledAccess, favourite, description) {
+function accomodationListItem(id, image, location, parkingAvailable, petsAllowed, priceRange, type, disabledAccess, favourite, description, firstImage, secondImage, thirdImage) {
 
 
 
@@ -155,10 +155,16 @@ function accomodationListItem(id, image, location, parkingAvailable, petsAllowed
         favouriteText = "Favourite"
     }
 
+    let popUpId = id + "_images";
+
+    // insertImagePopUps(popUpId, firstImage, secondImage, thirdImage);
+
     return (
         '<div data-role="content" class="center border_bottom accomodationItem">' +
         '<div class="image_container">' +
-        '<img src="' + image + '" alt="" />' +
+        '<a href="#' + popUpId + '" data-rel="popup"><img src="' + image + '" alt="" /></a>' +
+        // '<a href="#room_1_images" data-rel="popup"><img src="' + image + '" alt="" /></a>' +
+
         '</div>' +
         '<p>Click image to view photos</p>' +
         '<div class="ui-grid-a margin_top_text">' +
@@ -200,6 +206,29 @@ function userLoggedIn() {
     });
 }
 
+function insertImagePopUps(id, firstImage, secondImage, thirdImage) {
+
+    $(".popUpsDiv").append(
+        '<div data-role="popup" id="' + id + '" class="ui-content" style="max-width:2000px">' +
+        '<a href="#" data-rel="back"' +
+        '    class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>' +
+        '  <div class="row-images">' +
+        '    <div class="column image-1">' +
+        '      <img src="' + firstImage + '" alt="" srcset=""> ' +
+        '    </div>' +
+        '    <div class="column image-2">' +
+        '      <img src="' + secondImage + '" alt="" srcset=""> ' +
+        '    </div>' +
+        '    <div class="column image-3">' +
+        '      <img src="' + thirdImage + '" alt="" srcset=""> ' +
+        '    </div>' +
+        '  </div>' +
+        '</div>'
+    )
+
+
+}
+
 $(document).on("pagecontainershow", function (e, ui) {
 
     let page = ui.toPage[0].id;
@@ -224,7 +253,10 @@ $(document).on("pagecontainershow", function (e, ui) {
                         item.type,
                         item.disabledAccess,
                         item.favourite,
-                        item.description
+                        item.description,
+                        item.image[0],
+                        item.image[1],
+                        item.image[2]
                     ));
             });
 
@@ -265,6 +297,26 @@ $(document).on("pagecontainershow", function (e, ui) {
 
         });
 
+
+        $(".popUpsDiv").insertAfter(".accomodation_listings")
+        
+
+        $(".image-1").on("swipeleft", function (event) {
+            $(".row-images").animate({ marginLeft: "-75vw" }, 1000);
+        })
+
+        $(".image-2").on("swipeleft", function (event) {
+            $(".row-images").animate({ marginLeft: "-150vw" }, 1000);
+        })
+
+        $(".image-3").on("swiperight", function (event) {
+            $(".row-images").animate({ marginLeft: "-75vw" }, 1000);
+        })
+
+        $(".image-2").on("swiperight", function (event) {
+            $(".row-images").animate({ marginLeft: "0vw" }, 1000);
+
+        })
 
     }//listings page end
 
@@ -360,6 +412,7 @@ $(document).on("pagecontainershow", function (e, ui) {
         })
 
     }
+
 
 
 

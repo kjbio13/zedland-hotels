@@ -63,3 +63,15 @@ colours you used in your original design). You may apply the swatch on a pageby-
 at global level, by changing the framework default configuration. (15%) 
 
 Themeroller styles located at: './css/theme-roller.css/'
+
+/////////////////////////////////////////////////////////////////////////////
+5. Advanced Programming. (36%)
+a) Local Storage (24%)
+
+Local storage available in main.js
+
+b) Physical Events (12%)
+
+Events are on main.js
+
+Tried to dynamically create the Pop Up divs via jQuery strings, and using the JSON file. But somehow is not working. Had to hard code the Pop Up Divs in the HTML

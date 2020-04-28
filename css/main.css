@@ -90,3 +90,17 @@ a:link {
 .border_bottom {
   border-bottom: 1px solid #1E90FF;
 }
+
+.column img {
+  height: 160px;
+}
+
+.row-images {
+  display: flex;
+  /* margin-left: -75vw; */
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
